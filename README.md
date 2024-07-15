@@ -6,8 +6,8 @@ This project consists of two main scripts: one for training a machine learning m
 
 ### Project Structure
 
-- **Training Script (`spotify_model_training.py`)**: This script handles the data preprocessing, feature scaling, model training, evaluation, and saving the trained model.
-- **Deployment Script (`model_deployment.py`)**: This script loads the trained model, takes user input for song attributes, and predicts the likelihood that the user will like the song.
+- **Training Script (`spotify model training.py`)**: This script handles the data preprocessing, feature scaling, model training, evaluation, and saving the trained model.
+- **Deployment Script (`spotify model deployment.py`)**: This script loads the trained model, takes user input for song attributes, and predicts the likelihood that the user will like the song.
 
 ### Training Script
 
