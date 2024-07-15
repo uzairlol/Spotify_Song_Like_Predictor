@@ -1,102 +1,47 @@
-Spotify Song Like Predictor
+## README
 
-This repository contains scripts for a machine learning project that predicts whether a user will like a song based on its attributes. The project includes data preprocessing, model training, evaluation, and deployment.
+### Project Overview
 
-Table of Contents
+This project focuses on building and deploying a machine learning model to predict the likelihood of a user liking a song based on its attributes. The process involves data retrieval from Spotify, model training, and deployment. The key components of this project include:
 
-    Project Overview
-    Data Retrieval
-    Data Preprocessing and Visualization
-    Model Training and Evaluation
-    Model Deployment
-    Getting Started
-    Contact
+1. Data Retrieval
+2. Model Training
+3. Model Deployment
 
-Project Overview
+### Data Retrieval
 
-The Spotify Song Like Predictor project aims to predict the likelihood of a user liking a song based on various attributes such as danceability, energy, loudness, valence, etc. The project involves:
+The song attributes data was retrieved from the Spotify API. The data retrieval process consists of two main scripts:
 
-    Data retrieval from Spotify API.
-    Data preprocessing and visualization.
-    Training and evaluating a K-Nearest Neighbors (KNN) classifier.
-    Deploying the model for user interaction.
+1. **Retrieve Access Token**: This script, `retrieve_access_token.py`, is used to get an access token from the Spotify API. The access token is necessary for authenticating and accessing the Spotify Web API.
+   
+2. **Fetch Song Data**: This script, `fetch_song_data.py`, takes a Spotify song URL as input, fetches the song's attributes using the access token, and saves the data in a CSV file. This ensures we have a structured dataset of song attributes that can be used for model training.
 
-Data Retrieval
+### Model Training
 
-The song attributes data was retrieved from the Spotify API. The process involves the following steps:
+The model training script performs several key tasks to prepare and train a machine learning model:
 
-    Retrieve Access Token: Use a Python script to get an access token from the Spotify API. This token is used to authenticate and access the Spotify Web API.
-    Fetch Song Data: Use another Python script that takes a Spotify song URL as input, fetches the song's attributes using the access token, and saves the data in a CSV file.
+1. **Data Preprocessing**: The script reads the song attributes data, checks for missing values, and scales the numerical features to ensure consistency.
 
-Scripts
+2. **Data Visualization**: Various plots are generated to visualize the distributions of song attributes and their relationship with the target variable, providing insights into the data.
 
-    retrieve access token.py: This script retrieves an access token from the Spotify API.
-    save song attributes to csv file.py: This script uses the access token to fetch song attributes for a given Spotify song URL and saves the data in a CSV file.
+3. **Feature Selection**: The features (attributes) and the target variable are separated for model training.
 
-Data Preprocessing and Visualization
+4. **Model Training and Evaluation**: Multiple classifiers, including K-Nearest Neighbors (KNN), are evaluated. Hyperparameter tuning is performed using GridSearchCV to find the best parameters for the KNN model. The performance of the model is evaluated using accuracy, precision, recall, confusion matrix, and ROC curve.
 
-    Data Loading: Load the song attributes dataset from a CSV file.
-    Visualization: Generate pair plots and distribution plots for various song attributes to understand the data.
+5. **Model Saving**: The trained KNN model is saved to a file for later use in the deployment phase.
 
-Model Training and Evaluation
+### Model Deployment
 
-    Preprocessing: Handle missing data, scale numerical features, and split the data into training and test sets.
-    Training: Train a K-Nearest Neighbors (KNN) classifier using GridSearchCV for hyperparameter tuning.
-    Evaluation: Evaluate the model using accuracy, precision, recall, confusion matrix, and ROC curve.
+The model deployment script utilizes the trained KNN model to predict the likelihood of a user liking a song based on its attributes. The process involves:
 
-Model Deployment
+1. **Loading the Trained Model**: The saved KNN model is loaded from the file.
 
-    User Input: Create a user-friendly interface for inputting song attributes.
-    Prediction: Load the trained model and predict the likelihood of liking a song based on user input.
-    Result Display: Display the prediction results.
+2. **User Input**: The script prompts the user to input values for various song attributes.
 
-Getting Started
-Prerequisites
+3. **Prediction**: The input values are processed and fed into the model to predict the probability of liking the song.
 
-    Python 3.x
-    Required libraries: pandas, sklearn, tensorflow, matplotlib, seaborn, joblib, requests
+4. **Result Display**: The likelihood of liking the song is displayed to the user, providing a clear and actionable output based on the model's prediction.
 
-Installation
+### Conclusion
 
-    Clone the repository:
-
-    sh
-
-git clone https://github.com/yourusername/spotify-song-like-predictor.git
-cd spotify-song-like-predictor
-
-Install the required libraries:
-
-sh
-
-    pip install -r requirements.txt
-
-Running the Scripts
-
-    Retrieve Access Token:
-
-    sh
-
-python retrieve_access_token.py
-
-Fetch Song Data:
-
-sh
-
-python fetch_song_data.py
-
-Model Training:
-
-sh
-
-python model_training.py
-
-Model Deployment:
-
-sh
-
-    python model_deployment.py
-
-Contact
-
-For any questions or suggestions, feel free to contact me at uarif2093@gmail.com.
+This project demonstrates a comprehensive workflow for building and deploying a machine learning model using data retrieved from the Spotify API. By including the scripts for data retrieval, model training, and deployment, the project ensures transparency and reproducibility, making it a valuable resource for anyone interested in music data analysis and machine learning applications.
