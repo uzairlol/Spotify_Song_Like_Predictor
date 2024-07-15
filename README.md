@@ -1,6 +1,7 @@
 Spotify Song Like Predictor
 
 This repository contains scripts for a machine learning project that predicts whether a user will like a song based on its attributes. The project includes data preprocessing, model training, evaluation, and deployment.
+
 Table of Contents
 
     Project Overview
