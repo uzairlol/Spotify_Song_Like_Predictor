@@ -1,72 +1,101 @@
-# README
+Spotify Song Like Predictor
 
-## Spotify Song Like Prediction Model
+This repository contains scripts for a machine learning project that predicts whether a user will like a song based on its attributes. The project includes data preprocessing, model training, evaluation, and deployment.
+Table of Contents
 
-This project consists of two main scripts: one for training a machine learning model to predict whether a user will like a song based on its attributes, and another for deploying this model to make predictions based on user input.
+    Project Overview
+    Data Retrieval
+    Data Preprocessing and Visualization
+    Model Training and Evaluation
+    Model Deployment
+    Getting Started
+    Contact
 
-### Project Structure
+Project Overview
 
-- **Training Script (`spotify model training.py`)**: This script handles the data preprocessing, feature scaling, model training, evaluation, and saving the trained model.
-- **Deployment Script (`spotify model deployment.py`)**: This script loads the trained model, takes user input for song attributes, and predicts the likelihood that the user will like the song.
+The Spotify Song Like Predictor project aims to predict the likelihood of a user liking a song based on various attributes such as danceability, energy, loudness, valence, etc. The project involves:
 
-### Training Script
+    Data retrieval from Spotify API.
+    Data preprocessing and visualization.
+    Training and evaluating a K-Nearest Neighbors (KNN) classifier.
+    Deploying the model for user interaction.
 
-1. **Libraries Used**:
-    - Pandas for data manipulation and analysis
-    - Scikit-learn for data preprocessing, model training, and evaluation
-    - TensorFlow for neural network modeling
-    - Seaborn and Matplotlib for data visualization
-    - Joblib for saving and loading trained models
+Data Retrieval
 
-2. **Data Preprocessing**:
-    - Load the dataset from a CSV file.
-    - Visualize the dataset to understand the distribution of various attributes.
-    - Handle missing values and scale numerical features using StandardScaler.
-    - Split the dataset into training and testing sets.
+The song attributes data was retrieved from the Spotify API. The process involves the following steps:
 
-3. **Model Training**:
-    - Train a K-Nearest Neighbors (KNN) classifier using GridSearchCV for hyperparameter tuning.
-    - Evaluate the model using metrics such as accuracy, precision, recall, and confusion matrix.
-    - Visualize the model's performance using confusion matrix and ROC curve.
+    Retrieve Access Token: Use a Python script to get an access token from the Spotify API. This token is used to authenticate and access the Spotify Web API.
+    Fetch Song Data: Use another Python script that takes a Spotify song URL as input, fetches the song's attributes using the access token, and saves the data in a CSV file.
 
-4. **Model Saving**:
-    - Save the trained KNN model to a file using Joblib for later use in the deployment script.
+Scripts
 
-### Deployment Script
+    retrieve access token.py: This script retrieves an access token from the Spotify API.
+    save song attributes to csv file.py: This script uses the access token to fetch song attributes for a given Spotify song URL and saves the data in a CSV file.
 
-1. **Libraries Used**:
-    - Pandas for creating a DataFrame from user input
-    - Joblib for loading the trained model
+Data Preprocessing and Visualization
 
-2. **User Input**:
-    - Prompt the user to input values for various song attributes such as acousticness, danceability, energy, etc.
+    Data Loading: Load the song attributes dataset from a CSV file.
+    Visualization: Generate pair plots and distribution plots for various song attributes to understand the data.
 
-3. **Prediction**:
-    - Load the trained KNN model from the file.
-    - Use the model to predict the likelihood of the user liking the song based on the input attributes.
-    - Output the predicted likelihood to the user.
+Model Training and Evaluation
 
-### How to Run the Scripts
+    Preprocessing: Handle missing data, scale numerical features, and split the data into training and test sets.
+    Training: Train a K-Nearest Neighbors (KNN) classifier using GridSearchCV for hyperparameter tuning.
+    Evaluation: Evaluate the model using accuracy, precision, recall, confusion matrix, and ROC curve.
 
-1. **Training Script**:
-    - Ensure you have the necessary libraries installed.
-    - Place the dataset file (`song_attributes.csv`) in the specified path.
-    - Run the script to preprocess the data, train the model, and save the trained model to a file.
+Model Deployment
 
-2. **Deployment Script**:
-    - Ensure the trained model file is in the specified path.
-    - Run the script and follow the prompts to input song attributes.
-    - The script will output the likelihood of liking the song based on the input attributes.
+    User Input: Create a user-friendly interface for inputting song attributes.
+    Prediction: Load the trained model and predict the likelihood of liking a song based on user input.
+    Result Display: Display the prediction results.
 
-### Notes
+Getting Started
+Prerequisites
 
-- The project uses a K-Nearest Neighbors classifier, but other models such as Logistic Regression, Decision Tree, Gaussian Naive Bayes, Support Vector Classifier, and Random Forest are also available for experimentation.
-- Ensure the paths to the dataset and model files are correctly specified in the scripts.
-- The training script includes visualizations to help understand the data and model performance.
-- The deployment script provides a simple user interface to input song attributes and get predictions.
+    Python 3.x
+    Required libraries: pandas, sklearn, tensorflow, matplotlib, seaborn, joblib, requests
 
-### Future Enhancements
+Installation
 
-- Incorporate additional models and compare their performance.
-- Implement a more sophisticated user interface for the deployment script.
-- Explore feature engineering techniques to improve model accuracy.
+    Clone the repository:
+
+    sh
+
+git clone https://github.com/yourusername/spotify-song-like-predictor.git
+cd spotify-song-like-predictor
+
+Install the required libraries:
+
+sh
+
+    pip install -r requirements.txt
+
+Running the Scripts
+
+    Retrieve Access Token:
+
+    sh
+
+python retrieve_access_token.py
+
+Fetch Song Data:
+
+sh
+
+python fetch_song_data.py
+
+Model Training:
+
+sh
+
+python model_training.py
+
+Model Deployment:
+
+sh
+
+    python model_deployment.py
+
+Contact
+
+For any questions or suggestions, feel free to contact me at uarif2093@gmail.com.
