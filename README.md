@@ -12,9 +12,9 @@ This project focuses on building and deploying a machine learning model to predi
 
 The song attributes data was retrieved from the Spotify API. The data retrieval process consists of two main scripts:
 
-1. **Retrieve Access Token**: This script, `retrieve_access_token.py`, is used to get an access token from the Spotify API. The access token is necessary for authenticating and accessing the Spotify Web API.
+1. **Retrieve Access Token**: This script, `retrieve access token.py`, is used to get an access token from the Spotify API. The access token is necessary for authenticating and accessing the Spotify Web API.
    
-2. **Fetch Song Data**: This script, `fetch_song_data.py`, takes a Spotify song URL as input, fetches the song's attributes using the access token, and saves the data in a CSV file. This ensures we have a structured dataset of song attributes that can be used for model training.
+2. **Fetch Song Data**: This script, `save song attributes to csv file.py`, takes a Spotify song URL as input, fetches the song's attributes using the access token, and saves the data in a CSV file. This ensures we have a structured dataset of song attributes that can be used for model training.
 
 ### Model Training
 
